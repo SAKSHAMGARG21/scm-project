@@ -1,0 +1,42 @@
+import random
+
+def gameWin(comp, you):
+    if comp == you:
+        return None
+    elif comp == 'st':
+        if you== 'sc':
+            return False
+        elif you== 'pa':
+            return True 
+    elif comp == 'pa':
+        if you=='st':
+            return False
+        elif you=='sc':
+            return True
+    elif comp == 'sc':
+        if you=='pa':
+            return False
+        elif you=='st':
+            return True
+            
+print("Comp Turn: Stone(st) paper(pa) or scissor(sc)?")
+randNo = random.randint(1, 3)
+if randNo == 1:
+    comp = 'st'
+elif randNo == 2:
+    comp = 'pa'
+elif randNo == 3:
+    comp = 'sc'
+
+you = input("your Turn: Stone(st) paper(pa) or scissor(sc)?")
+a = gameWin(comp, you)
+
+print(f"Computer chosse {comp}")
+print(f"you chosse {you}")
+
+if a == None:
+    print("The game is a tie!")
+elif a:
+    print("You Win!")    
+else:
+    print("You loss!")
